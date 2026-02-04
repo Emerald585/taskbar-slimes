@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://e1o0y6s7oe6q"]
+
+[ext_resource type="Script" uid="uid://cpqjno7awd62x" path="res://mouse.gd" id="1_8f81w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tewyd"]
+radius = 16.0
+
+[node name="Mouse" type="Node2D"]
+script = ExtResource("1_8f81w")
+
+[node name="AnimatableBody2D" type="StaticBody2D" parent="."]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(7, 24)
+shape = SubResource("CircleShape2D_tewyd")
+one_way_collision_margin = 0.0

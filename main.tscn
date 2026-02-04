@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://8yy526oelrb7"]
+
+[ext_resource type="PackedScene" uid="uid://cw8d76frf1bwq" path="res://Slime1.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bjumpjn8du4g6" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dsjxkrgl8rm1f" path="res://Slime2.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ita4hiopn0s4" path="res://Slime3.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://e1o0y6s7oe6q" path="res://mouse.tscn" id="5_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(1964, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(2000, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(23, 1264)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_lquwl")
+
+[node name="Mouse" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(960, 1140.75)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(942, -18)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2.5, 529)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1919, 528)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="startslimes" type="Node2D" parent="."]
+
+[node name="Slime" parent="startslimes" instance=ExtResource("1_ig7tw")]
+position = Vector2(728, 740)
+
+[node name="Slime2" parent="startslimes" instance=ExtResource("2_0xm2m")]
+position = Vector2(887, 792)
+
+[node name="Slime3" parent="startslimes" instance=ExtResource("3_h2yge")]
+position = Vector2(1040, 750)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 12.0
+offset_top = -5.0
+offset_right = 52.0
+offset_bottom = 18.0
+text = "Version 1.0"
+label_settings = SubResource("LabelSettings_1bvp3")

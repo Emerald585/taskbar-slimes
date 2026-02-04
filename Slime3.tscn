@@ -1,0 +1,142 @@
+[gd_scene load_steps=24 format=3 uid="uid://ita4hiopn0s4"]
+
+[ext_resource type="Script" uid="uid://d330mf7u86jxd" path="res://slime_3.gd" id="1_gt5v8"]
+[ext_resource type="Texture2D" uid="uid://bvx6nkk0yoack" path="res://slime 3 -- yellow6.png" id="2_gt5v8"]
+[ext_resource type="Texture2D" uid="uid://b2543fadukyag" path="res://slime 3 -- yellow DANGLE1.png" id="2_j1mc6"]
+[ext_resource type="Texture2D" uid="uid://bfi0lpv7ixi5n" path="res://slime 3 -- yellow DANGLE2.png" id="3_ohd6a"]
+[ext_resource type="Texture2D" uid="uid://brh8dnmdeyif7" path="res://slime 3 -- yellow1.png" id="3_vp8xx"]
+[ext_resource type="Texture2D" uid="uid://cdfqj7pwy5ki4" path="res://slime 3 -- yellow2.png" id="4_f44pc"]
+[ext_resource type="Texture2D" uid="uid://b6vlpy7kvujdb" path="res://slime 3 -- yellow DANGLE3.png" id="4_nlkvn"]
+[ext_resource type="Texture2D" uid="uid://dc3pcv8l8dv0p" path="res://slime 3 -- yellow3.png" id="5_oaxeo"]
+[ext_resource type="Texture2D" uid="uid://deyeehuwqehkc" path="res://slime 3 -- yellow DANGLE4.png" id="5_oflra"]
+[ext_resource type="Texture2D" uid="uid://bwuakrqjmb8wr" path="res://slime 3 -- yellow4.png" id="6_hsveg"]
+[ext_resource type="Texture2D" uid="uid://c5tnrggac2aj1" path="res://slime 3 -- yellow DANGLE5.png" id="6_sl0bc"]
+[ext_resource type="Texture2D" uid="uid://dq3mg4w181wuf" path="res://slime 3 -- yellow5.png" id="7_60k8r"]
+[ext_resource type="Texture2D" uid="uid://bmyu6ip3e2m2o" path="res://slime 3 -- yellow DANGLE6.png" id="7_jlj7e"]
+[ext_resource type="Texture2D" uid="uid://bjktsnvkmpriw" path="res://slime 3 -- yellow DANGLE7.png" id="8_0n0hk"]
+[ext_resource type="Texture2D" uid="uid://b8m1yxjxd3vvc" path="res://slime 3 -- yellow7.png" id="8_yklx5"]
+[ext_resource type="Texture2D" uid="uid://5s08omxp4k5w" path="res://slime 3 -- yellow DANGLE8.png" id="9_y4hty"]
+[ext_resource type="Texture2D" uid="uid://ba24bsckt6jv0" path="res://slime 3 -- yellow DANGLE9.png" id="10_jqkqt"]
+[ext_resource type="Texture2D" uid="uid://c5hc7eg0qqwi4" path="res://slime 3 -- yellow DANGLE10.png" id="11_ccay3"]
+[ext_resource type="Texture2D" uid="uid://dxs6dg4ytl56o" path="res://slime 3 -- yellow DANGLE11.png" id="12_t37h2"]
+[ext_resource type="Texture2D" uid="uid://b757sut3uuox7" path="res://slime 3 -- yellow DANGLE12.png" id="13_gs1qh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w48qg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j1mc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ohd6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nlkvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oflra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sl0bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jlj7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0n0hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y4hty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jqkqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ccay3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t37h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gs1qh")
+}],
+"loop": true,
+"name": &"Dangle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hsveg")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vp8xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oaxeo")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vp8xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f44pc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oaxeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hsveg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_60k8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gt5v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yklx5")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ce8dg"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1mc6"]
+radius = 18.0
+
+[node name="Slime" type="CharacterBody2D"]
+script = ExtResource("1_gt5v8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.60156, 1.71094)
+sprite_frames = SubResource("SpriteFrames_w48qg")
+animation = &"Dangle"
+frame_progress = 0.944974
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_ce8dg")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -53.0
+offset_top = -27.0
+offset_right = 57.0
+offset_bottom = 53.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_j1mc6")

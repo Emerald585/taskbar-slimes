@@ -1,0 +1,115 @@
+[gd_scene load_steps=16 format=3 uid="uid://chttm4hpgx53o"]
+
+[ext_resource type="Script" uid="uid://5jufo10csj10" path="res://child.gd" id="1_n2fxi"]
+[ext_resource type="Texture2D" uid="uid://xlggb62kvt6" path="res://slime 1 -- blue dangle1.png" id="2_wi3ne"]
+[ext_resource type="Texture2D" uid="uid://cwhhqrf388w3b" path="res://slime 1 -- blue dangle2.png" id="3_hedmq"]
+[ext_resource type="Texture2D" uid="uid://egtrf6xv4k2y" path="res://slime 1 -- blue dangle3.png" id="4_m1v1g"]
+[ext_resource type="Texture2D" uid="uid://bxiw22s6cs0lh" path="res://slime 1 -- blue dangle4.png" id="5_nc8fh"]
+[ext_resource type="Texture2D" uid="uid://uvp02jx3u5u0" path="res://slime 1 -- blue dangle5.png" id="6_covhg"]
+[ext_resource type="Texture2D" uid="uid://dp4fhsw84cfx0" path="res://slime 1 -- blue6.png" id="7_gyqnh"]
+[ext_resource type="Texture2D" uid="uid://bvvfqbpk5nj1d" path="res://slime 1 -- blue1.png" id="8_40b3o"]
+[ext_resource type="Texture2D" uid="uid://c1l63iccku2xr" path="res://slime 1 -- blue2.png" id="9_f6p0s"]
+[ext_resource type="Texture2D" uid="uid://blqfof2dp3tga" path="res://slime 1 -- blue3.png" id="10_b2p8e"]
+[ext_resource type="Texture2D" uid="uid://ethn8f2qimcd" path="res://slime 1 -- blue4.png" id="11_6ja3v"]
+[ext_resource type="Texture2D" uid="uid://bsa4yi84q2i4y" path="res://slime 1 -- blue5.png" id="12_v3oj6"]
+[ext_resource type="Texture2D" uid="uid://bhb02t1w276y" path="res://slime 1 -- blue7.png" id="13_52xri"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w48qg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wi3ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hedmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m1v1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wi3ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nc8fh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_covhg")
+}],
+"loop": true,
+"name": &"Dangle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gyqnh")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_40b3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f6p0s")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_40b3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f6p0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b2p8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6ja3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_v3oj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gyqnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_52xri")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ce8dg"]
+radius = 18.0
+
+[node name="Slime" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_n2fxi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.60156, 1.71094)
+sprite_frames = SubResource("SpriteFrames_w48qg")
+animation = &"Dangle"
+frame_progress = 0.849802
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_ce8dg")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -53.0
+offset_top = -27.0
+offset_right = 57.0
+offset_bottom = 53.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_ce8dg")
